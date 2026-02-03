@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gotoproject/home/goto%20region.dart';
-import 'package:gotoproject/home/home.dart';
+import 'package:gotoproject/frontend/home/goto%20region.dart';
+import 'package:gotoproject/frontend/home/home.dart';
 
 class siderbar extends StatefulWidget {
   const siderbar({super.key});
@@ -17,7 +17,7 @@ class _siderbarState extends State<siderbar> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 50),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 17),
             child: Row(

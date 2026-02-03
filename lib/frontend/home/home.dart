@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gotoproject/sidebar/sidebar.dart';
+import 'package:gotoproject/backend/server_Controller.dart';
+
+import 'package:gotoproject/frontend/home/sidebar/sidebar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,13 +13,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var serverController = Get.put(ServerController());
+  @override
+  void initState() {
+    serverController.getserver();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          SizedBox(height: 45),
+          SizedBox(height: 55),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -85,13 +95,34 @@ class _HomeState extends State<Home> {
             ],
           ),
           SizedBox(height: 16),
-          Text(
-            'Goto Region: Pakistan',
-            style: GoogleFonts.poppins(
-              color: Color(0xFF374151),
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Goto Region:",
+                style: GoogleFonts.poppins(
+                  color: Color(0xFF374151),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Obx(() {
+                return Text(
+                  serverController.servers.isEmpty
+                      ? "Auto"
+                      : serverController
+                            .servers[serverController
+                                .SelectedIndex
+                                .value]['name']
+                            .toString(),
+                  style: GoogleFonts.poppins(
+                    color: Color(0xFF374151),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                );
+              }),
+            ],
           ),
         ],
       ),
