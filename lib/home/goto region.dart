@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gotoproject/sidebar/sidebar.dart';
+import 'package:gotoproject/sidebar/subscription.dart';
 
 class Gotoregion extends StatefulWidget {
   const Gotoregion({super.key});
@@ -24,10 +26,7 @@ class _GotoregionState extends State<Gotoregion> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => siderbar()),
-                    );
+                    Get.back();
                   },
                   child: Container(
                     width: 40,
@@ -49,16 +48,24 @@ class _GotoregionState extends State<Gotoregion> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 241, 240, 240),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => premium()),
+                    );
+                  },
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 241, 240, 240),
+                      ),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset('assets/images/crown.png'),
                   ),
-                  child: Image.asset('assets/images/crown.png'),
                 ),
               ],
             ),
@@ -70,20 +77,14 @@ class _GotoregionState extends State<Gotoregion> {
                 color: Color(0xFFF9FAFB),
                 borderRadius: BorderRadius.circular(13),
               ),
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(bottom: 15),
+                  hintText: "Search location...",
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
 
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search",
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    border: InputBorder.none,
-                  ),
+                  prefixIcon: Icon(Icons.search, color: Colors.grey, size: 20),
+                  border: InputBorder.none,
                 ),
               ),
             ),

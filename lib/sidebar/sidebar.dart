@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gotoproject/home/goto%20region.dart';
 import 'package:gotoproject/home/home.dart';
+import 'package:gotoproject/sidebar/Account.dart';
+import 'package:gotoproject/sidebar/Reedem.dart';
+import 'package:gotoproject/sidebar/fback.dart';
+import 'package:gotoproject/sidebar/security%20Setting.dart';
+import 'package:gotoproject/sidebar/subscription.dart';
 
 class siderbar extends StatefulWidget {
   const siderbar({super.key});
@@ -92,7 +97,7 @@ class _siderbarState extends State<siderbar> {
                           child: Text(
                             'Premium',
                             style: GoogleFonts.poppins(
-                              color: Color(0xFF6B7280),
+                              color: Color(0xFF15803D),
                               fontSize: 10,
                               fontWeight: FontWeight.w500,
                             ),
@@ -132,17 +137,57 @@ class _siderbarState extends State<siderbar> {
             child: barWidget(icon: Icons.storage, text1: 'Regions'),
           ),
           SizedBox(height: 14),
-          barWidget(icon: Icons.person, text1: 'My Account'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Account()),
+              );
+            },
+            child: barWidget(icon: Icons.person, text1: 'My Account'),
+          ),
           SizedBox(height: 14),
-          barWidget(icon: Icons.redeem_sharp, text1: 'Redeem Code'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Reedem()),
+              );
+            },
+            child: barWidget(icon: Icons.redeem_sharp, text1: 'Redeem Code'),
+          ),
           SizedBox(height: 14),
-          barWidget(icon: Icons.subscriptions, text1: 'Subscription'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => premium()),
+              );
+            },
+            child: barWidget(icon: Icons.subscriptions, text1: 'Subscription'),
+          ),
           SizedBox(height: 14),
-          barWidget(icon: Icons.settings, text1: 'Setting'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Securitysetting()),
+              );
+            },
+            child: barWidget(icon: Icons.settings, text1: 'Setting'),
+          ),
           SizedBox(height: 14),
           barWidget(icon: Icons.privacy_tip, text1: 'Privacy Policy'),
           SizedBox(height: 14),
-          barWidget(icon: Icons.feedback, text1: 'Feedback'),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Fback()),
+              );
+            },
+            child: barWidget(icon: Icons.feedback, text1: 'Feedback'),
+          ),
           Spacer(),
           Container(
             width: double.infinity,
