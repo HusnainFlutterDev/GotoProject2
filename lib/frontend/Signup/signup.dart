@@ -3,7 +3,8 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gotoproject/backend/server_Controller.dart';
-import 'package:gotoproject/frontend/Signup/login.dart';
+
+import 'package:gotoproject/frontend/login.dart/login.dart';
 import 'package:http/http.dart';
 
 class Signup extends StatefulWidget {
